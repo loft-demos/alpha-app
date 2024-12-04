@@ -63,6 +63,11 @@ spec:
       host: https://argocd-REPLACE_BASE_DOMAIN
       assignedRoles:
         - role:admin
+  rancher:
+    enabled: true
+    projectRef:
+      project: p-2gvrm
+      cluster: local
   namespacePattern:
     virtualCluster: '{{.Values.loft.project}}-v-{{.Values.loft.name}}'
 ---

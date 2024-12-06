@@ -51,7 +51,7 @@ spec:
             ingresses:
               enabled: true
             customResources:
-              wordpresss.wordpress.presslabs.org:
+              wordpresses.wordpress.presslabs.org:
                 enabled: true
 
         controlPlane:

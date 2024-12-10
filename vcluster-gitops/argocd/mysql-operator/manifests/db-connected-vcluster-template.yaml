@@ -54,7 +54,7 @@ spec:
                 autoSleep:
                   afterInactivity: 7200
                 autoDelete:
-                  afterInactivity: 180000
+                  afterInactivity: 7800000
             sync:
               toHost:
                 ingresses:

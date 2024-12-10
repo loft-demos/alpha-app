@@ -89,10 +89,13 @@ spec:
     - kind: VirtualClusterTemplate
       group: storage.loft.sh
       name: default-template
-      isDefault: true
     - kind: VirtualClusterTemplate
       group: storage.loft.sh
       name: vcluster-pro-template
+    - kind: VirtualClusterTemplate
+      group: storage.loft.sh
+      name: db-connector-vcluster
+      isDefault: true
   requireTemplate: {}
   members:
     - kind: Team

@@ -55,7 +55,7 @@ spec:
                 autoSleep:
                   afterInactivity: 7200
                   autoWakeup:
-                    schedule: 0 */8 * * *
+                    schedule: 0 8 * * 1-5
                 autoDelete:
                   afterInactivity: 180000
                   
@@ -224,8 +224,8 @@ spec:
           platform:
             autoSleep:
               afterInactivity: 10800
-            autoWakeup:
-              schedule: 0 */8 * * *
+              autoWakeup:
+                schedule: 0 8 * * 1-5
             autoDelete:
               afterInactivity: 120000
         sync:

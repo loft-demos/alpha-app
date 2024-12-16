@@ -53,7 +53,7 @@ spec:
             external:
               platform:
                 autoSleep:
-                  afterInactivity: 1800
+                  afterInactivity: 1500
                   autoWakeup:
                     schedule: 0 7-17 * * 1-5
                   timezone: "America/New_York"

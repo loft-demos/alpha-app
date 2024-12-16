@@ -55,9 +55,10 @@ spec:
                 autoSleep:
                   afterInactivity: 7200
                   autoWakeup:
-                    schedule: 0 8 * * 1-5
+                    schedule: 0 7 * * 1-5
                 autoDelete:
                   afterInactivity: 1800000
+                timezone: "America/New_York"
                   
             sync:
               toHost:

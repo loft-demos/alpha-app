@@ -55,7 +55,7 @@ spec:
                 autoSleep:
                   afterInactivity: 7200
                   autoWakeup:
-                    schedule: 0 7 * * 1-5
+                    schedule: 0 7,11,14 * * 1-5
                   timezone: "America/New_York"
                 autoDelete:
                   afterInactivity: 1800000

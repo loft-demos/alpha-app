@@ -53,9 +53,9 @@ spec:
             external:
               platform:
                 autoSleep:
-                  afterInactivity: 7200
+                  afterInactivity: 1800
                   autoWakeup:
-                    schedule: 0 7,11,14 * * 1-5
+                    schedule: 0 7-17 * * 1-5
                   timezone: "America/New_York"
                 autoDelete:
                   afterInactivity: 1800000

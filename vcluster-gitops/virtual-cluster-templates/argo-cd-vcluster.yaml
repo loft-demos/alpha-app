@@ -91,7 +91,7 @@ spec:
         external:
           platform:
             autoSleep:
-              schedule: * 22 * * *
+              schedule: 0 22 * * *
               autoWakeup:
                 schedule: 0 6 * * 1-5
               timezone: "America/New_York"

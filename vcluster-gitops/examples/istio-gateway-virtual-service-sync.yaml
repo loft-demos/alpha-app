@@ -237,12 +237,7 @@ spec:
                     enabled: true
               distro:
                 k8s:
-                  apiServer:
-                    image:
-                      tag:  "{{ .Values.k8sVersion }}"
-                  controllerManager:
-                    image:
-                      tag: "{{ .Values.k8sVersion }}"
+                  version: "{{ .Values.k8sVersion }}"
               coredns:
                 embedded: true
 

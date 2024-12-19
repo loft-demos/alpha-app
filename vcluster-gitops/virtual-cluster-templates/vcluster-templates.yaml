@@ -64,7 +64,7 @@ spec:
               toHost:
                 ingresses:
                   enabled: true
-                customResources"
+                customResources:
                   innodbclusters.mysql.oracle.com:
                     enabled: true
             plugins:

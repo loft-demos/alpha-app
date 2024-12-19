@@ -64,6 +64,9 @@ spec:
               toHost:
                 ingresses:
                   enabled: true
+                customResources"
+                  innodbclusters.mysql.oracle.com:
+                    enabled: true
             plugins:
               rancher:
                 image: ghcr.io/loft-sh/rancher-nodeless-plugin:0.0.5

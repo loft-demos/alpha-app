@@ -65,9 +65,10 @@ spec:
                 ingresses:
                   enabled: true
                 pods:
+                  enabled: true
                   patches:
-                    path: spec.imagePullSecrets[0]
-                    expression: "hook-image-pull-secret"
+                    - path: spec.imagePullSecrets[0]
+                      expression: "hook-image-pull-secret"
                 secrets:
                   all: true
                 customResources:

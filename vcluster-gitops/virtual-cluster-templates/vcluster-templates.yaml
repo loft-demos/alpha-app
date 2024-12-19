@@ -63,7 +63,11 @@ spec:
             sync:
               toHost:
                 ingresses:
-                  enabled: 
+                  enabled: true
+                pods:
+                  patches:
+                    path: spec.imagePullSecrets[0]
+                    expression: "hook-image-pull-secret"
                 secrets:
                   all: true
                 customResources:
@@ -72,18 +76,6 @@ spec:
             plugins:
               rancher:
                 image: ghcr.io/loft-sh/rancher-nodeless-plugin:0.0.5
-            
-            experimental:
-              genericSync:
-                hooks:
-                  virtualToHost:
-                  - apiVersion: v1
-                    kind: Pod
-                    patches:
-                    - op: add
-                      path: spec.imagePullSecrets[0]
-                      value: 
-                        name: hook-image-pull-secret
 
             controlPlane:
               statefulSet:

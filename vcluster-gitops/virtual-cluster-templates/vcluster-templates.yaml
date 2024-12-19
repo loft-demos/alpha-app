@@ -238,6 +238,11 @@ spec:
           toHost:
             ingresses:
               enabled: true
+            secrets:
+              all: true
+            customResources:
+              postgresqls.acid.zalan.do:
+                enabled: true
 
         controlPlane:
           # Use an embedded managed etcd server instead of using the k3s default SQLite backend

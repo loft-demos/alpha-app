@@ -63,9 +63,11 @@ spec:
             sync:
               toHost:
                 ingresses:
-                  enabled: true
+                  enabled: 
+                secrets:
+                  all: true
                 customResources:
-                  innodbclusters.mysql.oracle.com:
+                  postgresqls.acid.zalan.do:
                     enabled: true
             plugins:
               rancher:

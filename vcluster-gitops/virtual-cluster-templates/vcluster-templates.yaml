@@ -189,7 +189,7 @@ apiVersion: management.loft.sh/v1
 metadata:
   name: preview-template
 spec:
-  displayName: vCluster.Pro Preview Template
+  displayName: vCluster Preview Template
   template:
     metadata:
       labels:

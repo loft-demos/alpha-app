@@ -103,6 +103,8 @@ spec:
           ingress: {}
         spaceTemplate:
           metadata: {}
+          apps:
+            - name: workload-sa-image-pull-secret
           objects: |
             apiVersion: v1
             kind: Secret

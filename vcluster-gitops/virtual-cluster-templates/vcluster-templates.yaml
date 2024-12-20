@@ -69,6 +69,12 @@ spec:
                 customResources:
                   postgresqls.acid.zalan.do:
                     enabled: true
+
+            advanced:
+              workloadServiceAccount:
+                imagePullSecrets:
+                  name: hook-image-pull-secret
+            
             plugins:
               rancher:
                 image: ghcr.io/loft-sh/rancher-nodeless-plugin:0.0.5
@@ -103,8 +109,6 @@ spec:
           ingress: {}
         spaceTemplate:
           metadata: {}
-          apps:
-            - name: workload-sa-image-pull-secret
           objects: |
             apiVersion: v1
             kind: Secret

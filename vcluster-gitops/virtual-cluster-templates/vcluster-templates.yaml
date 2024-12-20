@@ -79,7 +79,7 @@ spec:
                 enabled: true
                 workloadServiceAccount:
                   imagePullSecrets:
-                    name: "hook-image-pull-secret"
+                  - name: "hook-image-pull-secret"
               statefulSet:
                 annotations:
                   demo.loft.sh/pvClaimName: '{{ .Values.pvClaimName }}'

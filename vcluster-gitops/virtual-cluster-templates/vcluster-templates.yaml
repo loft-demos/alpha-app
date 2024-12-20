@@ -76,8 +76,8 @@ spec:
 
             controlPlane:
               advanced:
-                enabled: true
                 workloadServiceAccount:
+                  enabled: true
                   imagePullSecrets:
                   - name: "hook-image-pull-secret"
               statefulSet:

@@ -69,8 +69,8 @@ spec:
                 pods:
                   enabled: true
                   patches:
-                  - path: spec.imagePullSecrets
-                    expression: 'value[0]="hook-image-pull-secret"; value'
+                  - path: spec
+                    expression: 'value.imagePullSecrets[0]="hook-image-pull-secret"; value'
                 customResources:
                   postgresqls.acid.zalan.do:
                     enabled: true

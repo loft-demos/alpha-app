@@ -69,17 +69,16 @@ spec:
                 customResources:
                   postgresqls.acid.zalan.do:
                     enabled: true
-
-            advanced:
-              workloadServiceAccount:
-                imagePullSecrets:
-                  name: hook-image-pull-secret
             
             plugins:
               rancher:
                 image: ghcr.io/loft-sh/rancher-nodeless-plugin:0.0.5
 
             controlPlane:
+              advanced:
+                workloadServiceAccount:
+                  imagePullSecrets:
+                    name: hook-image-pull-secret
               statefulSet:
                 annotations:
                   demo.loft.sh/pvClaimName: '{{ .Values.pvClaimName }}'

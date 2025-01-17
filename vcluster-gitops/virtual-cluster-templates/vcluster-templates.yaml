@@ -33,7 +33,6 @@ spec:
             sleepmode.loft.sh/ignore-user-agents: argo*
           labels:
             loft.sh/import-rancher: 'true'
-            loft.sh/import-argocd: 'true'
         instanceTemplate:
           metadata:
             annotations:
@@ -54,7 +53,7 @@ spec:
             external:
               platform:
                 autoSleep:
-                  afterInactivity: 1500
+                  afterInactivity: 1800
                   autoWakeup:
                     schedule: 11 7-17 * * 1-5
                   timezone: "America/New_York"

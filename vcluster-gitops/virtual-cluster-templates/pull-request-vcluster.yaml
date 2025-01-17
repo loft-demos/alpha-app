@@ -52,7 +52,7 @@ spec:
                     application.resourceTrackingMethod: annotation
                     oidc.config: |
                        issuer: https://{{ .Values.loft.clusterAnnotations.domainPrefix }}.{{ .Values.loft.clusterAnnotations.domain }}/oidc
-                       clientID: loft
+                       clientID: argocd-{{ .Values.loft.virtualClusterName }}
                        clientSecret: $oidc-secret:clientSecret
                        Name: Loft
                   params:

@@ -78,6 +78,7 @@ spec:
 
             controlPlane:
               advanced:
+                defaultImageRegistry: "ghcr.io/loft-demos"
                 workloadServiceAccount:
                   enabled: true
                   imagePullSecrets:
@@ -101,9 +102,6 @@ spec:
                 persistence:
                   volumeClaim:
                     storageClass: "standard-rwo"
-             
-              advanced:
-                defaultImageRegistry: "ghcr.io/loft-demos"
               # Use an embedded managed etcd server instead of using the default SQLite backend
               backingStore:
                 etcd:

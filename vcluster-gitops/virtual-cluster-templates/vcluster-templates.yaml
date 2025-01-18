@@ -48,6 +48,8 @@ spec:
           enabled: true
         helmRelease:
           chart:
+            name: vcluster
+            repo: https://loft-demos.github.io/vcluster-charts
             version: 0.22.3
           values: |+
             external:
@@ -70,9 +72,9 @@ spec:
                   postgresqls.acid.zalan.do:
                     enabled: true
             
-            plugins:
-              rancher:
-                image: ghcr.io/loft-sh/rancher-nodeless-plugin:0.0.5
+            #plugins:
+              #rancher:
+                #image: ghcr.io/loft-sh/rancher-nodeless-plugin:0.0.5
 
             controlPlane:
               advanced:
@@ -93,14 +95,20 @@ spec:
                     ephemeral-storage: 8Gi
                     memory: 2Gi
                     cpu: 1
+                image:
+                  repository: "vcluster-pro"
+                  tag: "0.22.3-k8s.{{ .Values.k8sVersion }}"
+                persistence:
+                  volumeClaim:
+                    storageClass: "standard-rwo"
+             
+              advanced:
+                defaultImageRegistry: "ghcr.io/loft-demos"
               # Use an embedded managed etcd server instead of using the default SQLite backend
               backingStore:
                 etcd:
                   embedded:
                     enabled: true
-              distro:
-                k8s:
-                  version: "{{ .Values.k8sVersion }}"
               coredns:
                 embedded: true
 

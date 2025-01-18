@@ -48,7 +48,7 @@ spec:
           enabled: true
         helmRelease:
           chart:
-            version: 0.21.2
+            version: 0.22.3
           values: |+
             external:
               platform:
@@ -124,11 +124,11 @@ spec:
           label: k8sVersion
           description: Please select Kubernetes version
           options:
-            - v1.31.1
-            - v1.30.5
-            - v1.29.9
-            - v1.28.14
-          defaultValue: v1.30.5
+            - v1.32.0
+            - v1.31.4
+            - v1.30.8
+            - v1.29.12
+          defaultValue: v1.31.4
           section: Kubernetes Environment
         - variable: pvClaimName
           label: Persistent Volume Claim Name
@@ -218,7 +218,7 @@ spec:
       enabled: true
     helmRelease:
       chart:
-        version: 0.21.1
+        version: 0.22.3
       values: |-
         external:
           platform:

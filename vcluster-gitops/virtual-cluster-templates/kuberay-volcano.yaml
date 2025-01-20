@@ -21,8 +21,16 @@ spec:
       enabled: true
     helmRelease:
       chart:
-        version: 0.20.0
+        version: 0.22.3
       values: |
+        external:
+          platform:
+            autoSleep:
+              afterInactivity: 10800
+              autoWakeup:
+                schedule: 5 0/12 * * *
+            autoDelete:
+              afterInactivity: 180000
         sync:
           toHost:
             ingresses:

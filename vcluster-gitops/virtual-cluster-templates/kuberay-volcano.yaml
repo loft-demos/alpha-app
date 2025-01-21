@@ -30,7 +30,7 @@ spec:
               autoWakeup:
                 schedule: 5 0/12 * * *
             autoDelete:
-              afterInactivity: 180000
+              afterInactivity: 1800000
         sync:
           toHost:
             ingresses:

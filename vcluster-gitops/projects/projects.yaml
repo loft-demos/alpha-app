@@ -67,10 +67,7 @@ spec:
       assignedRoles:
         - role:admin
   rancher:
-    enabled: true
-    projectRef:
-      project: p-2gvrm
-      cluster: local
+    enabled: false
   namespacePattern:
     virtualCluster: '{{.Values.loft.project}}-v-{{.Values.loft.name}}'
 ---

@@ -31,8 +31,6 @@ spec:
         metadata:
           annotations:
             sleepmode.loft.sh/ignore-user-agents: argo*
-          labels:
-            loft.sh/import-rancher: 'true'
         instanceTemplate:
           metadata:
             annotations:

@@ -67,7 +67,6 @@ spec:
       assignedRoles:
         - role:admin
   rancher:
-    enabled: false
   namespacePattern:
     virtualCluster: '{{.Values.loft.project}}-v-{{.Values.loft.name}}'
 ---

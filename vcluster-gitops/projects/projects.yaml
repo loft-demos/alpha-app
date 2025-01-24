@@ -163,11 +163,6 @@ spec:
       name: '*'
   requireTemplate:
     disabled: true
-  members:
-    - kind: User
-      group: storage.loft.sh
-      name: '*'
-      clusterRole: loft-management-project-user
   access:
     - name: loft-access
       verbs:

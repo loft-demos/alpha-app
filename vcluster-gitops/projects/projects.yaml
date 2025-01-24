@@ -163,6 +163,11 @@ spec:
       name: '*'
   requireTemplate:
     disabled: true
+  members:
+    - kind: Team
+      group: storage.loft.sh
+      clusterRole: loft-management-project-admin
+      name: loft-admins
   access:
     - name: loft-access
       verbs:

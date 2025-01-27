@@ -1,0 +1,7 @@
+apiVersion: example.demo.loft.sh/v1
+kind: TShirt
+metadata:
+  name: my-shirt
+spec:
+  size: medium
+  color: blue

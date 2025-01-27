@@ -1,0 +1,9 @@
+apiVersion: example.demo.loft.sh/v2
+kind: TShirt
+metadata:
+  name: my-shirt-v2
+spec:
+  size: large
+  color: green
+  fabric: cotton
+  logo: true

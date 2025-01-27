@@ -53,7 +53,7 @@ spec:
             external:
               platform:
                 autoSleep:
-                  afterInactivity: {{ mul .Values.sleepAfter 60 }}
+                  afterInactivity: 1620
                   autoWakeup:
                     schedule: 11 7-17 * * 1-5
                   timezone: "America/New_York"
@@ -151,14 +151,6 @@ spec:
             - qa
             - prod
           defaultValue: dev
-          section: Deployment Environment
-        - variable: sleepAfter
-          label: Sleep After Inactivity (minutes)
-          description: >-
-            Defines the number of seconds of inactivity before the virtual cluster 
-            enters sleep mode
-          type: number
-          defaultValue: '27'
           section: Deployment Environment
       version: 1.0.0
     - template:

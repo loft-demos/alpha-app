@@ -272,6 +272,8 @@ apiVersion: management.loft.sh/v1
 kind: VirtualClusterTemplate
 metadata:
   name: sleepy-vcluster-template
+  annotations:
+    argocd.argoproj.io/sync-options: Validate=false
 spec:
   displayName: Sleepy vCluster Template
   description: This template deploys a sleepy virtual cluster
@@ -304,12 +306,12 @@ spec:
           statefulSet:
             image:
               repository: "vcluster-pro"
-              tag: "0.22.3-k8s.v1.32.1"
+              tag: "0.22.3-k8s.{{ .Values.k8sVersion }}"
         
         external:
           platform:
             autoSleep:
-              afterInactivity: 180
+              afterInactivity: {{ mul .Values.sleepAfter 60 }}
     accessPoint:
       ingress: {}
     spaceTemplate:
@@ -319,6 +321,15 @@ spec:
       label: Sleep After Inactivity (minutes)
       type: number
       defaultValue: '3'
+    - variable: k8sVersion
+      label: k8sVersion
+      description: Please select Kubernetes version
+      options:
+        - v1.32.1
+        - v1.31.4
+        - v1.30.8
+        - v1.29.12
+      defaultValue: v1.31.4
   access:
     - verbs:
         - get

@@ -267,3 +267,59 @@ spec:
         - '*'
       users:
         - admin
+---
+apiVersion: management.loft.sh/v1
+kind: VirtualClusterTemplate
+metadata:
+  name: sleepy-vcluster-template
+spec:
+  displayName: Sleepy vCluster Template
+  description: This template deploys a sleepy virtual cluster
+  template:
+    metadata: {}
+    instanceTemplate:
+      metadata: {}
+    pro:
+      enabled: true
+    helmRelease:
+      chart:
+        name: vcluster
+        repo: https://loft-demos.github.io/vcluster-charts
+        version: 0.22.3
+      values: |
+        controlPlane:
+          coredns:
+            embedded: true
+        sync:
+          fromHost:
+            ingressClasses:
+              enabled: true
+          toHost:
+            ingresses:
+              enabled: true
+        external:
+          platform:
+            autoSleep:
+              afterInactivity: {{ mul .Values.sleepAfter 60 }}
+
+        controlPlane:
+          advanced:
+            defaultImageRegistry: "ghcr.io/loft-demos"
+          statefulSet:
+            image:
+              repository: "vcluster-pro"
+              tag: "0.22.3-k8s.v1.32.1"
+    accessPoint:
+      ingress: {}
+    spaceTemplate:
+      metadata: {}
+  parameters:
+    - variable: sleepAfter
+      label: Sleep After Inactivity (minutes)
+      type: number
+      defaultValue: '3'
+  access:
+    - verbs:
+        - get
+      users:
+        - '*'

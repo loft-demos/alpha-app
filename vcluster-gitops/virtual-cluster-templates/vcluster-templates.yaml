@@ -297,10 +297,6 @@ spec:
           toHost:
             ingresses:
               enabled: true
-        external:
-          platform:
-            autoSleep:
-              afterInactivity: {{ mul .Values.sleepAfter 60 }}
 
         controlPlane:
           advanced:
@@ -309,6 +305,11 @@ spec:
             image:
               repository: "vcluster-pro"
               tag: "0.22.3-k8s.v1.32.1"
+        
+        external:
+          platform:
+            autoSleep:
+              afterInactivity: 180
     accessPoint:
       ingress: {}
     spaceTemplate:

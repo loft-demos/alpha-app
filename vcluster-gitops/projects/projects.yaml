@@ -21,13 +21,10 @@ spec:
       isDefault: true
     - kind: VirtualClusterTemplate
       group: storage.loft.sh
+      name: sleepy-vcluster-template
+    - kind: VirtualClusterTemplate
+      group: storage.loft.sh
       name: pull-request-vcluster
-    - kind: VirtualClusterTemplate
-      group: storage.loft.sh
-      name: kuberay-volcano
-    - kind: VirtualClusterTemplate
-      group: storage.loft.sh
-      name: argo-cd-vcluster
   requireTemplate: {}
   members:
     - kind: Team

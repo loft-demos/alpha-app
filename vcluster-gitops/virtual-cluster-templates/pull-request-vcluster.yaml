@@ -149,6 +149,8 @@ spec:
           enabled: true
         helmRelease:
           chart:
+            name: vcluster
+            repo: https://loft-demos.github.io/vcluster-charts
             version: 0.22.3
           values: |-
             external:
@@ -165,14 +167,10 @@ spec:
             controlPlane:
               advanced:
                 defaultImageRegistry: "ghcr.io/loft-demos"
-                workloadServiceAccount:
-                  enabled: true
-                  imagePullSecrets:
-                  - name: "hook-image-pull-secret"
               # Use an embedded managed etcd server instead of using the k3s default SQLite backend
               backingStore:
                 etcd:
-                  embedded:
+                  embedded: true
               coredns:
                 embedded: true
               statefulSet:

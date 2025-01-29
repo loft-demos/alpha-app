@@ -128,10 +128,10 @@ spec:
           description: Please select Kubernetes version
           options:
             - v1.32.1
-            - v1.31.4
-            - v1.30.8
-            - v1.29.12
-          defaultValue: v1.31.4
+            - v1.31.5
+            - v1.30.9
+            - v1.29.14
+          defaultValue: v1.31.5
           section: Kubernetes Environment
         - variable: pvClaimName
           label: Persistent Volume Claim Name
@@ -325,10 +325,10 @@ spec:
       description: Please select Kubernetes version
       options:
         - v1.32.1
-        - v1.31.4
-        - v1.30.8
-        - v1.29.12
-      defaultValue: v1.31.4
+        - v1.31.5
+        - v1.30.9
+        - v1.29.14
+      defaultValue: v1.31.5
   access:
     - verbs:
         - get

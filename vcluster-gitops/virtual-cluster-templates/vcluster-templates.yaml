@@ -321,7 +321,7 @@ spec:
     - variable: sleepAfter
       label: Sleep After Inactivity (minutes)
       type: number
-      defaultValue: '3'
+      defaultValue: '2'
     - variable: k8sVersion
       label: k8sVersion
       description: Please select Kubernetes version

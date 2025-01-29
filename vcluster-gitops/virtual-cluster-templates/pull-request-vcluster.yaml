@@ -170,7 +170,8 @@ spec:
               # Use an embedded managed etcd server instead of using the k3s default SQLite backend
               backingStore:
                 etcd:
-                  embedded: true
+                  embedded:
+                    enabled: true
               coredns:
                 embedded: true
               statefulSet:

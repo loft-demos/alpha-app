@@ -28,7 +28,8 @@ spec:
     spaceTemplate:
       metadata: {}
   versions:
-    - template:
+    - version: 1.0.0
+      template:
         metadata:
           annotations:
             sleepmode.loft.sh/ignore-user-agents: argo*
@@ -148,12 +149,12 @@ spec:
           enabled: true
         helmRelease:
           chart:
-            version: 0.21.1
+            version: 0.22.3
           values: |-
             external:
               platform:
                 autoSleep:
-                  afterInactivity: 7200
+                  afterInactivity: 8400
                 autoDelete:
                   afterInactivity: 720000
             sync:
@@ -162,21 +163,22 @@ spec:
                   enabled: true
 
             controlPlane:
+              advanced:
+                defaultImageRegistry: "ghcr.io/loft-demos"
+                workloadServiceAccount:
+                  enabled: true
+                  imagePullSecrets:
+                  - name: "hook-image-pull-secret"
               # Use an embedded managed etcd server instead of using the k3s default SQLite backend
               backingStore:
                 etcd:
                   embedded:
-                    enabled: true
-              distro:
-                k8s:
-                  apiServer:
-                    image:
-                      tag:  "{{ .Values.k8sVersion }}"
-                  controllerManager:
-                    image:
-                      tag: "{{ .Values.k8sVersion }}"
               coredns:
                 embedded: true
+              statefulSet:
+                image:
+                  repository: "vcluster-pro"
+                  tag: "0.22.3-k8s.{{ .Values.k8sVersion }}"
         accessPoint:
           ingress: {}
         spaceTemplate:
@@ -186,12 +188,11 @@ spec:
           label: k8sVersion
           description: Please select Kubernetes version
           options:
-            - v1.30.2
-            - v1.29.8
-            - v1.28.11
-            - v1.27.9
-            - v1.26.15
-          defaultValue: v1.29.8
+            - v1.32.1
+            - v1.31.4
+            - v1.30.8
+            - v1.29.12
+          defaultValue: v1.31.4
         - variable: prnumber
           label: PR Number
           type: string
@@ -200,5 +201,4 @@ spec:
           label: Repo Name
           type: string
           defaultValue: hello-app
-      version: 1.0.0
 status: {}

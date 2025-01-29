@@ -1,0 +1,9 @@
+vcluster platform login https://alpha.us.demo.dev
+
+vcluster platform create vcluster annas-dev --set-param 'k8sVersion=v1.32.1'
+
+helm upgrade --install crossplane crossplane-stable/crossplane -n crossplane-system --create-namespace
+
+helm uninstall crossplane -n crossplane-system
+
+vcluster platform delete vcluster annas-dev --project api-framework

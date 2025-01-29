@@ -76,7 +76,6 @@ spec:
 
             controlPlane:
               advanced:
-                defaultImageRegistry: "ghcr.io/loft-demos"
                 workloadServiceAccount:
                   enabled: true
                   imagePullSecrets:
@@ -95,7 +94,7 @@ spec:
                     memory: 2Gi
                     cpu: 1
                 image:
-                  repository: "vcluster-pro"
+                  repository: "loft-demos/vcluster-pro"
                   tag: "0.22.3-k8s.{{ .Values.k8sVersion }}"
                 persistence:
                   volumeClaim:

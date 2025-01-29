@@ -163,14 +163,7 @@ spec:
               toHost:
                 ingresses:
                   enabled: true
-                pods:
-                  rewriteHosts:
-                    initContainer:
-                      image: "library/alpine:3.20"
-
             controlPlane:
-              advanced:
-                defaultImageRegistry: "ghcr.io/loft-demos"
               # Use an embedded managed etcd server instead of using the k3s default SQLite backend
               backingStore:
                 etcd:
@@ -180,7 +173,8 @@ spec:
                 embedded: true
               statefulSet:
                 image:
-                  repository: "vcluster-pro"
+                  registry: "ghcr.io"
+                  repository: "loft-demos/vcluster-pro"
                   tag: "0.22.3-k8s.{{ .Values.k8sVersion }}"
         accessPoint:
           ingress: {}

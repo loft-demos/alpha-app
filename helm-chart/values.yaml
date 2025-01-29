@@ -8,7 +8,7 @@ image:
     text: echo v1
 deployment:
   # used to specify commit sha in CI job
-  commit: 41651544e6423f0db83de06d8e7388e375b5a43a
+  commit: b1ee54a536e1c1af6dc3a9bc33619acc8a87934e
 serviceAccount:
   # Specifies whether a service account should be created
   create: true

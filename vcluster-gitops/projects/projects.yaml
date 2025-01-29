@@ -168,6 +168,10 @@ spec:
       group: storage.loft.sh
       clusterRole: loft-management-project-admin
       name: loft-admins
+    - kind: User
+      group: storage.loft.sh
+      clusterRole: loft-management-project-user
+      name: anna-smith
   access:
     - name: loft-access
       verbs:

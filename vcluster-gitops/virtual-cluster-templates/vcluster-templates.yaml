@@ -312,7 +312,7 @@ spec:
             autoSleep:
               afterInactivity: {{ mul .Values.sleepAfter 60 }}
             autoDelete:
-              afterInactivity: {{ mul .Values.sleepAfter 90 }}
+              afterInactivity: {{ mul .Values.sleepAfter 120 }}
     accessPoint:
       ingress: {}
     spaceTemplate:

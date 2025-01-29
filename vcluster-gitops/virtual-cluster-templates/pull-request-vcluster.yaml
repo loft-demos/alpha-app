@@ -173,7 +173,6 @@ spec:
                 embedded: true
               statefulSet:
                 image:
-                  registry: "ghcr.io"
                   repository: "loft-demos/vcluster-pro"
                   tag: "0.22.3-k8s.{{ .Values.k8sVersion }}"
         accessPoint:

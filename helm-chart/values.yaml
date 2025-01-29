@@ -6,8 +6,6 @@ image:
   tag: ""
   args:
     text: echo v1
-imagePullSecrets:
-  - name: ghcr-login-secret
 deployment:
   # used to specify commit sha in CI job
   commit: 41651544e6423f0db83de06d8e7388e375b5a43a

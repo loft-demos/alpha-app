@@ -288,23 +288,21 @@ spec:
         repo: https://loft-demos.github.io/vcluster-charts
         version: 0.22.3
       values: |
-        controlPlane:
-          coredns:
-            embedded: true
         sync:
-          fromHost:
-            ingressClasses:
-              enabled: true
           toHost:
             ingresses:
               enabled: true
 
         controlPlane:
-          advanced:
-            defaultImageRegistry: "ghcr.io/loft-demos"
+          backingStore:
+            etcd:
+              embedded:
+                enabled: true
+          coredns:
+            embedded: true
           statefulSet:
             image:
-              repository: "vcluster-pro"
+              repository: "loft-demos/vcluster-pro"
               tag: "0.22.3-k8s.{{ .Values.k8sVersion }}"
         
         external:

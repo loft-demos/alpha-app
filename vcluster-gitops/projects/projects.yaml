@@ -25,6 +25,9 @@ spec:
     - kind: VirtualClusterTemplate
       group: storage.loft.sh
       name: pull-request-vcluster
+    - kind: VirtualClusterTemplate
+      group: storage.loft.sh
+      name: argo-cd-vcluster
   requireTemplate: {}
   members:
     - kind: Team

@@ -14,7 +14,7 @@ spec:
   source:
     repoURL: https://github.com/argoproj/argo-cd/
     targetRevision: HEAD
-    path: examples/k8s-rbac/argocd-server-applications/kustomization.yaml
+    path: examples/k8s-rbac/argocd-server-applications/
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:

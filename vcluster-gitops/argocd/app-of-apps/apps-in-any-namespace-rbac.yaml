@@ -1,0 +1,28 @@
+# Kubernetes RBAC required for Argo CD Applications in any namespace
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apps-in-any-namespace-rbac
+  namespace: argocd
+  labels:
+    category.demos.loft.sh: namespace-sync
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/argoproj/argo-cd/
+    targetRevision: HEAD
+    path: examples/k8s-rbac/argocd-server-applications/kustomization.yaml
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true    
+    retry:
+      limit: 1
+      backoff:
+        duration: 5s 
+        factor: 2 
+        maxDuration: 1m

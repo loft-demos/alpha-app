@@ -1,0 +1,52 @@
+kind: VirtualClusterInstance
+apiVersion: management.loft.sh/v1
+metadata:
+  name: argo-cd-app-ns-sync
+  namespace: p-default
+  labels:
+    loft.sh/import-argocd: 'true'
+spec:
+  displayName: argo-cd-app-ns-sync
+  owner:
+    user: kurtmadel
+  template:
+    metadata: {}
+    instanceTemplate:
+      metadata: {}
+    pro:
+      enabled: true
+    helmRelease:
+      chart:
+        version: 0.26.0-alpha.5
+      values: |
+        sync:
+          toHost:
+            ingresses:
+              enabled: true
+            customResources:
+              applications.argoproj.io:
+                enabled: true
+                patches:
+                  - path: spec.destination
+                    expression: "({ name: `loft-default-vcluster-${context.vcluster.name}`, namespace: value?.namespace })"
+            namespaces:
+              enabled: true
+              mappings:
+                byName:
+                  "app-team-*": "app-team-*"
+
+        controlPlane:
+          backingStore:
+            etcd:
+              embedded:
+                enabled: true
+          coredns:
+            enabled: true
+            embedded: true
+    accessPoint:
+      ingress: {}
+    spaceTemplate:
+      metadata: {}
+  clusterRef:
+    cluster: loft-cluster
+  networkPeer: true

@@ -19,13 +19,32 @@ spec:
     metadata: {}
     rules:
       - verbs:
+          - create
+          - get
+          - list
+        apiGroups:
+          - management.loft.sh
+        resources:
+          - virtualclusterinstances
+          - spaceinstances
+          - projectsecrets
+          - devpodworkspaceinstances
+          - devpodworkspaceinstances/up
+          - devpodworkspaceinstances/ssh
+          - devpodworkspaceinstances/stop
+          - devpodworkspaceinstances/getstatus
+      - verbs:
+          - portforward
+          - watch
+        apiGroups:
+          - management.loft.sh
+        resources:
+          - devpodworkspaceinstances
+      - verbs:
           - get
           - list
         apiGroups:
           - management.loft.sh
         resources:
           - virtualclusterinstances/log
-    aggregationRule:
-      clusterRoleSelectors:
-        - matchLabels:
-            demos.loft.sh/aggregate-to-project-user: 'true'
+

@@ -82,7 +82,7 @@ spec:
                   enabled: true
                   imagePullSecrets:
                   - name: "hook-image-pull-secret"
-              service:'
+              service:
                 labels:
                   env: '{{ .Values.env }}'
                   demos.loft.sh/project: '{{ .Values.loft.project }}'

@@ -13,6 +13,7 @@ resources:
 - virtual-cluster-templates/sleepy-vcluster-template.yaml
 - projects/api-framework.yaml
 - projects/auth-core.yaml
+- projects/default.yaml
 - project-secrets/project-secrets.yaml
 - project-secrets/loft-demo-org-cred.yaml
 - project-secrets/argocd-notifications-secret.yaml

@@ -13,6 +13,6 @@ jobs:
         run: vcluster --version
       - name: Login to vCluster Platform instance
         env:
-          VCLUSTER_PLATFORM_URL: ${{ secrets.VCLUSTER_PLATFORM_URL }}
+          VCLUSTER_PLATFORM_URL: ${{ vars.VCLUSTER_PLATFORM_URL }}
           ACCESS_KEY: ${{ secrets.VCLUSTER_PLATFORM_ACCESS_KEY }}
         run: vcluster platform login $VCLUSTER_PLATFORM_URL --access-key $ACCESS_KEY

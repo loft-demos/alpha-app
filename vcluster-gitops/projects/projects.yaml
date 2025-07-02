@@ -142,8 +142,11 @@ spec:
     project:
       enabled: true
       metadata:
+        description: Argo CD project for the vCluster Platform Auth Core project.
         extraLabels:
           use-global-project-settings: 'true'
+      sourceRepos:
+        - https://github.com/loft-demos/alpha-app.git
 ---
 kind: Project
 apiVersion: management.loft.sh/v1

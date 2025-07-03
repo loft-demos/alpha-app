@@ -25,6 +25,7 @@ spec:
                 matchLabels:
                   repo: alpha-app
                   prLabel: 'create-pr-vcluster-external-argocd'
+                  vcluster.loft.sh/ready: 'true'
   template:
     metadata:
       name: alpha-app-pr-{{number}}-preview-app

@@ -27,7 +27,7 @@ spec:
       - name: e2e vCluster
         color: ee7d3b
         description: Run e2e tests on PR with vCluster
-    repository: alpha-app-app
+    repository: alpha-app
   initProvider: {}
   managementPolicies:
     - '*'

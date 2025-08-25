@@ -207,7 +207,7 @@ spec:
               kubernetes.io/ingress.class: nginx
           spec:
             rules:
-              - host: demo-web-{REPLACE_VCLUSTER_NAME}.{REPLACE_BASE_DOMAIN}
+              - host: demo-web-alpha.us.demo.dev
                 http:
                   paths:
                     - path: /
@@ -239,9 +239,9 @@ spec:
                     type: oci
                     oci:
                       credential:
-                        secretName: {REPLACE_ORG_NAME}-ghcr-write-pat
+                        secretName: loft-demos-ghcr-write-pat
                         secretNamespace: p-default
-                      repository: oci://ghcr.io/{REPLACE_ORG_NAME}/{REPLACE_REPO_NAME}
+                      repository: oci://ghcr.io/loft-demos/alpha-app
             sleepMode:
               enabled: true
               autoSleep:

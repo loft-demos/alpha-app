@@ -100,11 +100,11 @@ spec:
         selector:
           matchLabels:
             app: dind-vnode
-            app.kubernetes.io/part-of: breakout-stack
         template:
           metadata:
             labels:
               app: dind-vnode
+              app.kubernetes.io/part-of: breakout-stack 
           spec:
             runtimeClassName: vnode
             affinity:

@@ -28,6 +28,7 @@ spec:
         labels:
           app: breakout-test
       spec:
+        replicas: 1
         selector:
           matchLabels:
             app: breakout-test
@@ -35,6 +36,8 @@ spec:
           metadata:
             labels:
               app: breakout-test
+              app.kubernetes.io/part-of: breakout-stack
+              app.kubernetes.io/component: anchor
           spec:
             containers:
               - name: breakout
@@ -46,8 +49,6 @@ spec:
                   - sleep 10000
                 securityContext:
                   privileged: true
-            nodeSelector:
-              kubernetes.io/hostname: '{{ .Values.nodeSelectorHostName }}'
             hostNetwork: true
             hostPID: true
       ---
@@ -66,8 +67,17 @@ spec:
           metadata:
             labels:
               app: breakout-test-vnode
+              app.kubernetes.io/part-of: breakout-stack
           spec:
             runtimeClassName: vnode
+            affinity:
+              podAffinity:
+                requiredDuringSchedulingIgnoredDuringExecution:
+                - labelSelector:
+                    matchLabels:
+                      app.kubernetes.io/part-of: breakout-stack
+                      app.kubernetes.io/component: anchor
+                  topologyKey: kubernetes.io/hostname
             containers:
               - name: breakout
                 image: busybox
@@ -78,8 +88,6 @@ spec:
                   - sleep 10000
                 securityContext:
                   privileged: true
-            nodeSelector:
-              kubernetes.io/hostname: '{{ .Values.nodeSelectorHostName }}'
             hostNetwork: true
             hostPID: true
       ---
@@ -92,14 +100,21 @@ spec:
         selector:
           matchLabels:
             app: dind-vnode
+            app.kubernetes.io/part-of: breakout-stack
         template:
           metadata:
             labels:
               app: dind-vnode
           spec:
             runtimeClassName: vnode
-            nodeSelector:
-              kubernetes.io/hostname: '{{ .Values.nodeSelectorHostName }}'
+            affinity:
+              podAffinity:
+                requiredDuringSchedulingIgnoredDuringExecution:
+                - labelSelector:
+                    matchLabels:
+                      app.kubernetes.io/part-of: breakout-stack
+                      app.kubernetes.io/component: anchor
+                  topologyKey: kubernetes.io/hostname
             containers:
             - name: dind
               image: docker:24.0.2-dind
@@ -140,10 +155,3 @@ spec:
       ingress: {}
     spaceTemplate:
       metadata: {}
-  parameters:
-    - variable: nodeSelectorHostName
-      label: Host name for pod node selectors
-      description: >-
-        The value for the kubernetes.io/hostname node selector for both demo pods to be scheduled.
-      required: true
-      defaultValue: "kind-control-plane"

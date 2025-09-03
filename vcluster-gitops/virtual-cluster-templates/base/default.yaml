@@ -4,6 +4,8 @@ metadata:
   name: default-template
   labels:
     patchType: versioned
+  annotations:
+    vcluster.com/template-icon: vcluster-box.svg
 spec:
   displayName: Default Virtual Cluster Template
   description: This virtual cluster template deploys a vCluster with embedded etcd and integrated CoreDNS.

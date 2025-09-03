@@ -16,8 +16,8 @@ jobs:
         id: calc
         env:
           GH_TOKEN: ${{ github.token }}
-          OWNER: {REPLACE_ORG_NAME}            # org or username that owns the package
-          PKG: {REPLACE_REPO_NAME}             # package name only (no ghcr.io prefix)
+          OWNER: loft-demos          # org or username that owns the package
+          PKG: alpha-app          # package name only (no ghcr.io prefix)
           TAG_REGEX: '^[a-z0-9-]+-\d{14}$'
         run: |
           set -euo pipefail
@@ -52,8 +52,8 @@ jobs:
       - uses: actions/delete-package-versions@v5
         if: ${{ steps.calc.outputs.ids != '' }}
         with:
-          owner: {REPLACE_ORG_NAME}
-          package-name: {REPLACE_REPO_NAME} 
+          owner: loft-demos
+          package-name: alpha-app
           package-type: container
           package-version-ids: ${{ steps.calc.outputs.ids }}
           token: ${{ github.token }}

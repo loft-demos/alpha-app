@@ -6,7 +6,7 @@ controlPlane:
   distro:
     k8s:
       image:
-        tag: v1.32.5
+        tag: v1.33.4
   service:
     spec:
       type: LoadBalancer

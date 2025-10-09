@@ -87,6 +87,7 @@ spec:
                   value: |
                     k8sVersion: {{k8sVersion}}
                     sleepAfter: "4"
+                    disableControlPlaneSleep: true
               target:
                 group: management.loft.sh
                 version: v1

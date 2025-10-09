@@ -93,7 +93,7 @@ spec:
                   env: '{{ .Values.env }}'
                   demos.vcluster.com/project: '{{ .Values.loft.project }}'
                   demos.vcluster.com/owner: '{{ or (and .Values.loft.user .Values.loft.user.name) (and .Values.loft.team .Values.loft.team.name) }}'
-              statefulSet: disableControlPlaneSleep
+              statefulSet:
                 {{if .Values.disableControlPlaneSleep}}
                 annotations:
                   sleepmode.loft.sh/exclude: 'true'

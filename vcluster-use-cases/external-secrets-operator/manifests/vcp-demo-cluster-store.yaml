@@ -27,7 +27,7 @@ spec:
 apiVersion: external-secrets.io/v1
 kind: ExternalSecret
 metadata:
-  name: loft-demos-ghcr-write
+  name: loft-demos-ghcr-write-pat
   namespace: p-default
 spec:
   secretStoreRef:

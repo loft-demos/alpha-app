@@ -6,6 +6,6 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
   labels:
-    loft.sh/project-secret-name: loft-demos-ghcr-write
+    loft.sh/project-secret-name: loft-demos-ghcr-write-pat
     org: loft-demos
     repo: alpha-app

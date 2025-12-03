@@ -96,7 +96,7 @@ spec:
       wait: true
       # important: this feature requires Flux 2.5+
       healthCheckExprs:
-        - apiVersion: management.loft.sh/v1
+        - apiVersion: storage.loft.sh/v1
           kind: VirtualClusterInstance
           failed: "status.conditions.exists(c, c.type == 'Ready' && c.status == 'False' && c.severity == 'Error')"
           inProgress: "status.conditions.filter(e, e.type == 'Ready').all(e, e.status == 'False')"

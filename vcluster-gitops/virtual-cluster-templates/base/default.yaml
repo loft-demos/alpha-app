@@ -69,6 +69,9 @@ spec:
             sync:
               toHost:
                 pods:
+                  {{if .Values.loft.clusterAnnotations.vnode}}
+                  runtimeClassName: vnode
+                  {{end}}
                   patches:
                     - path: metadata.annotations
                       expression: 'value["demos.vcluster.com/project"]="{{ .Values.loft.project }}";value'
